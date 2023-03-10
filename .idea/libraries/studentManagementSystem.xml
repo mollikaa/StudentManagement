@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="studentManagementSystem">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/StudentManagement-main/studentManagementSystem/openjfx-19.0.2.1_windows-x64_bin-sdk.zip!/" />
+      <root url="jar://$PROJECT_DIR$/StudentManagement-main/studentManagementSystem/mysql-connector-j-8.0.31.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
