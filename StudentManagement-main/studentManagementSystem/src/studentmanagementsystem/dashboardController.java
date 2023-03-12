@@ -870,7 +870,6 @@ public class dashboardController implements Initializable {
                 alert.setContentText("Please fill all blank fields");
                 alert.showAndWait();
             } else {
-//            CHECK IF THE COURSE YOU WANT TO INSERT IS ALREADY EXIST!
                 String checkData = "SELECT course FROM course WHERE course = '"
                         + availableCourse_course.getText() + "'";
 
@@ -897,9 +896,8 @@ public class dashboardController implements Initializable {
                     alert.setContentText("Successfully Added!");
                     alert.showAndWait();
 
-                    // TO BECOME UPDATED OUR TABLEVIEW ONCE THE DATA WE GAVE SUCCESSFUL
                     availableCourseShowListData();
-                    // TO CLEAR THE TEXT FIELDS
+
                     availableCourseClear();
 
                 }
@@ -947,9 +945,8 @@ public class dashboardController implements Initializable {
                     alert.setContentText("Successfully Updated!");
                     alert.showAndWait();
 
-                    // TO BECOME UPDATED OUR TABLEVIEW ONCE THE DATA WE GAVE SUCCESSFUL
                     availableCourseShowListData();
-                    // TO CLEAR THE TEXT FIELDS
+
                     availableCourseClear();
 
                 } else {
@@ -983,7 +980,7 @@ public class dashboardController implements Initializable {
                 alert.setContentText("Please fill all blank fields");
                 alert.showAndWait();
             } else {
-//                ALL GOOD GUYS! NOW LETS PROCEED TO ADD STUDENTS FORM
+
                 alert = new Alert(AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Message");
                 alert.setHeaderText(null);
@@ -1000,9 +997,8 @@ public class dashboardController implements Initializable {
                     alert.setContentText("Successfully Deleted!");
                     alert.showAndWait();
 
-                    // TO BECOME UPDATED OUR TABLEVIEW ONCE THE DATA WE GAVE SUCCESSFUL
                     availableCourseShowListData();
-                    // TO CLEAR THE TEXT FIELDS
+
                     availableCourseClear();
 
                 } else {
@@ -1099,7 +1095,7 @@ public class dashboardController implements Initializable {
 
             if (finalCheck1 == 0 || finalCheck2 == 0) {
                 finalResult = 0;
-            } else { //LIKE (X+Y)/2 AVE WE NEED TO FIND FOR FINALS
+            } else {
                 finalResult = (Double.parseDouble(studentGrade_firstSem.getText())
                         + Double.parseDouble(studentGrade_secondSem.getText()) / 2);
             }
@@ -1141,13 +1137,12 @@ public class dashboardController implements Initializable {
                     alert.setContentText("Successfully Updated!");
                     alert.showAndWait();
 
-                    // TO UPDATE THE TABLEVIEW
                     studentGradesShowListData();
                 } else {
                     return;
                 }
 
-            }// NOT WE ARE CLOSER TO THE ENDING PART  :) LETS PROCEED TO DASHBOARD FORM
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1202,7 +1197,6 @@ public class dashboardController implements Initializable {
         studentGrade_col_firstSem.setCellValueFactory(new PropertyValueFactory<>("firstSem"));
         studentGrade_col_secondSem.setCellValueFactory(new PropertyValueFactory<>("secondSem"));
         studentGrade_col_final.setCellValueFactory(new PropertyValueFactory<>("finals"));
-//        WE NEED TO FIX THE DELETE ON ADD STUDENT FORM
         studentGrade_tableView.setItems(studentGradesList);
 
     }
@@ -1312,7 +1306,113 @@ public class dashboardController implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    public void displayUsername(){
+        username.setText(getData.username);
     }
+
+    public void defaultNav(){
+        home_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+    }
+
+    public void switchForm(ActionEvent event) {
+        if (event.getSource() == home_btn) {
+            home_form.setVisible(true);
+            addStudents_form.setVisible(false);
+            availableCourse_form.setVisible(false);
+            studentGrade_form.setVisible(false);
+
+            home_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+            addStudents_btn.setStyle("-fx-background-color:transparent");
+            availableCourse_btn.setStyle("-fx-background-color:transparent");
+            studentGrade_btn.setStyle("-fx-background-color:transparent");
+
+            homeDisplayTotalEnrolledStudents();
+            homeDisplayMaleEnrolled();
+            homeDisplayFemaleEnrolled();
+            homeDisplayEnrolledMaleChart();
+            homeDisplayFemaleEnrolledChart();
+            homeDisplayTotalEnrolledChart();
+
+        } else if (event.getSource() == addStudents_btn) {
+            home_form.setVisible(false);
+            addStudents_form.setVisible(true);
+            availableCourse_form.setVisible(false);
+            studentGrade_form.setVisible(false);
+
+            addStudents_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+            home_btn.setStyle("-fx-background-color:transparent");
+            availableCourse_btn.setStyle("-fx-background-color:transparent");
+            studentGrade_btn.setStyle("-fx-background-color:transparent");
+
+            addStudentsShowListData();
+            addStudentsYearList();
+            addStudentsGenderList();
+            addStudentsStatusList();
+            addStudentsCourseList();
+            addStudentsSearch();
+
+        } else if (event.getSource() == availableCourse_btn) {
+            home_form.setVisible(false);
+            addStudents_form.setVisible(false);
+            availableCourse_form.setVisible(true);
+            studentGrade_form.setVisible(false);
+
+            availableCourse_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+            addStudents_btn.setStyle("-fx-background-color:transparent");
+            home_btn.setStyle("-fx-background-color:transparent");
+            studentGrade_btn.setStyle("-fx-background-color:transparent");
+
+            availableCourseShowListData();
+
+        } else if (event.getSource() == studentGrade_btn) {
+            home_form.setVisible(false);
+            addStudents_form.setVisible(false);
+            availableCourse_form.setVisible(false);
+            studentGrade_form.setVisible(true);
+
+            studentGrade_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+            addStudents_btn.setStyle("-fx-background-color:transparent");
+            availableCourse_btn.setStyle("-fx-background-color:transparent");
+            home_btn.setStyle("-fx-background-color:transparent");
+
+            studentGradesShowListData();
+            studentGradesSearch();
+
+        }
+    }
+
+    public void close() {
+        System.exit(0);
+    }
+
+    public void minimize() {
+        Stage stage = (Stage) main_form.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        displayUsername();
+        defaultNav();
+
+        homeDisplayTotalEnrolledStudents();
+        homeDisplayMaleEnrolled();
+        homeDisplayFemaleEnrolled();
+        homeDisplayEnrolledMaleChart();
+        homeDisplayFemaleEnrolledChart();
+        homeDisplayTotalEnrolledChart();
+
+        addStudentsShowListData();
+        addStudentsYearList();
+        addStudentsGenderList();
+        addStudentsStatusList();
+        addStudentsCourseList();
+
+        availableCourseShowListData();
+
+        studentGradesShowListData();
+
+    }
+
 }
