@@ -8,8 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-
-public class StudentManagementSystem extends Application {
+public class   StudentManagementSystem extends Application {
 
     private double x = 0 ;
     private double y = 0;

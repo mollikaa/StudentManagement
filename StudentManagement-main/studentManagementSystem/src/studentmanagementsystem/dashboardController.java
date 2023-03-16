@@ -264,7 +264,7 @@ public class dashboardController implements Initializable {
 
     public void homeDisplayTotalEnrolledStudents() {
 
-        String sql = "SELECT COUNT(studentNUM) FROM student";
+        String sql = "SELECT COUNT(id) FROM student";
 
         connect = database.connectDb();
 
@@ -275,7 +275,7 @@ public class dashboardController implements Initializable {
             result = prepare.executeQuery();
 
             if (result.next()) {
-                countEnrolled = result.getInt("COUNT(studentNum)");
+                countEnrolled = result.getInt("COUNT(id)");
             }
 
             home_totalEnrolled.setText(String.valueOf(countEnrolled));
@@ -288,7 +288,7 @@ public class dashboardController implements Initializable {
 
     public void homeDisplayFemaleEnrolled() {
 
-        String sql = "SELECT COUNT(studentNUM) FROM student WHERE gender = 'Female' and status = 'Enrolled'";
+        String sql = "SELECT COUNT(id) FROM student WHERE gender = 'Female' and status = 'Enrolled'";
 
         connect = database.connectDb();
 
@@ -299,7 +299,7 @@ public class dashboardController implements Initializable {
             result = prepare.executeQuery();
 
             if (result.next()) {
-                countFemale = result.getInt("COUNT(studentNUM)");
+                countFemale = result.getInt("COUNT(id)");
             }
 
             home_totalFemale.setText(String.valueOf(countFemale));
@@ -312,7 +312,7 @@ public class dashboardController implements Initializable {
 
     public void homeDisplayMaleEnrolled() {
 
-        String sql = "SELECT COUNT(studentNum) FROM student WHERE gender = 'Male' and status = 'Enrolled'";
+        String sql = "SELECT COUNT(id) FROM student WHERE gender = 'Male' and status = 'Enrolled'";
 
         connect = database.connectDb();
 
@@ -323,7 +323,7 @@ public class dashboardController implements Initializable {
             result = prepare.executeQuery();
 
             if (result.next()) {
-                countMale = result.getInt("COUNT(studentNum)");
+                countMale = result.getInt("COUNT(id)");
             }
             home_totalMale.setText(String.valueOf(countMale));
 
@@ -337,7 +337,7 @@ public class dashboardController implements Initializable {
 
         home_totalEnrolledChart.getData().clear();
 
-        String sql = "SELECT date, COUNT(studentNUM) FROM student WHERE status = 'Enrolled' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
+        String sql = "SELECT date, COUNT(id) FROM student WHERE status = 'Enrolled' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
 
         connect = database.connectDb();
 
@@ -363,7 +363,7 @@ public class dashboardController implements Initializable {
 
         home_totalFemaleChart.getData().clear();
 
-        String sql = "SELECT date, COUNT(studentNUM) FROM student WHERE status = 'Enrolled' and gender = 'Female' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
+        String sql = "SELECT date, COUNT(id) FROM student WHERE status = 'Enrolled' and gender = 'Female' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
 
         connect = database.connectDb();
 
@@ -389,7 +389,7 @@ public class dashboardController implements Initializable {
 
         home_totalMaleChart.getData().clear();
 
-        String sql = "SELECT date, COUNT(studentNUM) FROM student WHERE status = 'Enrolled' and gender = 'Male' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
+        String sql = "SELECT date, COUNT(id) FROM student WHERE status = 'Enrolled' and gender = 'Male' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
 
         connect = database.connectDb();
 
@@ -1312,7 +1312,7 @@ public class dashboardController implements Initializable {
     }
 
     public void defaultNav(){
-        home_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #33539e, #e8d7d4);");
+        home_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
     }
 
     public void switchForm(ActionEvent event) {
@@ -1322,7 +1322,7 @@ public class dashboardController implements Initializable {
             availableCourse_form.setVisible(false);
             studentGrade_form.setVisible(false);
 
-            home_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #33539e, #e8d7d4);");
+            home_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
             addStudents_btn.setStyle("-fx-background-color:transparent");
             availableCourse_btn.setStyle("-fx-background-color:transparent");
             studentGrade_btn.setStyle("-fx-background-color:transparent");
@@ -1340,7 +1340,7 @@ public class dashboardController implements Initializable {
             availableCourse_form.setVisible(false);
             studentGrade_form.setVisible(false);
 
-            addStudents_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #33539e, #e8d7d4);");
+            addStudents_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
             home_btn.setStyle("-fx-background-color:transparent");
             availableCourse_btn.setStyle("-fx-background-color:transparent");
             studentGrade_btn.setStyle("-fx-background-color:transparent");
@@ -1358,7 +1358,7 @@ public class dashboardController implements Initializable {
             availableCourse_form.setVisible(true);
             studentGrade_form.setVisible(false);
 
-            availableCourse_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #33539e, #e8d7d4);");
+            availableCourse_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
             addStudents_btn.setStyle("-fx-background-color:transparent");
             home_btn.setStyle("-fx-background-color:transparent");
             studentGrade_btn.setStyle("-fx-background-color:transparent");
@@ -1371,7 +1371,7 @@ public class dashboardController implements Initializable {
             availableCourse_form.setVisible(false);
             studentGrade_form.setVisible(true);
 
-            studentGrade_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #33539e, #e8d7d4);");
+            studentGrade_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
             addStudents_btn.setStyle("-fx-background-color:transparent");
             availableCourse_btn.setStyle("-fx-background-color:transparent");
             home_btn.setStyle("-fx-background-color:transparent");
