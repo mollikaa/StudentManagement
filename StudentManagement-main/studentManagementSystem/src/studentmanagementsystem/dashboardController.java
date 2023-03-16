@@ -1312,7 +1312,7 @@ public class dashboardController implements Initializable {
     }
 
     public void defaultNav(){
-        home_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+        home_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #33539e, #e8d7d4);");
     }
 
     public void switchForm(ActionEvent event) {
@@ -1322,7 +1322,7 @@ public class dashboardController implements Initializable {
             availableCourse_form.setVisible(false);
             studentGrade_form.setVisible(false);
 
-            home_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+            home_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #33539e, #e8d7d4);");
             addStudents_btn.setStyle("-fx-background-color:transparent");
             availableCourse_btn.setStyle("-fx-background-color:transparent");
             studentGrade_btn.setStyle("-fx-background-color:transparent");
@@ -1340,7 +1340,7 @@ public class dashboardController implements Initializable {
             availableCourse_form.setVisible(false);
             studentGrade_form.setVisible(false);
 
-            addStudents_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+            addStudents_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #33539e, #e8d7d4);");
             home_btn.setStyle("-fx-background-color:transparent");
             availableCourse_btn.setStyle("-fx-background-color:transparent");
             studentGrade_btn.setStyle("-fx-background-color:transparent");
@@ -1358,7 +1358,7 @@ public class dashboardController implements Initializable {
             availableCourse_form.setVisible(true);
             studentGrade_form.setVisible(false);
 
-            availableCourse_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+            availableCourse_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #33539e, #e8d7d4);");
             addStudents_btn.setStyle("-fx-background-color:transparent");
             home_btn.setStyle("-fx-background-color:transparent");
             studentGrade_btn.setStyle("-fx-background-color:transparent");
@@ -1371,7 +1371,7 @@ public class dashboardController implements Initializable {
             availableCourse_form.setVisible(false);
             studentGrade_form.setVisible(true);
 
-            studentGrade_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+            studentGrade_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #33539e, #e8d7d4);");
             addStudents_btn.setStyle("-fx-background-color:transparent");
             availableCourse_btn.setStyle("-fx-background-color:transparent");
             home_btn.setStyle("-fx-background-color:transparent");
