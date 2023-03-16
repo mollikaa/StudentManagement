@@ -264,7 +264,7 @@ public class dashboardController implements Initializable {
 
     public void homeDisplayTotalEnrolledStudents() {
 
-        String sql = "SELECT COUNT(id) FROM student";
+        String sql = "SELECT COUNT(studentNUM) FROM student";
 
         connect = database.connectDb();
 
@@ -275,7 +275,7 @@ public class dashboardController implements Initializable {
             result = prepare.executeQuery();
 
             if (result.next()) {
-                countEnrolled = result.getInt("COUNT(id)");
+                countEnrolled = result.getInt("COUNT(studentNum)");
             }
 
             home_totalEnrolled.setText(String.valueOf(countEnrolled));
@@ -288,7 +288,7 @@ public class dashboardController implements Initializable {
 
     public void homeDisplayFemaleEnrolled() {
 
-        String sql = "SELECT COUNT(id) FROM student WHERE gender = 'Female' and status = 'Enrolled'";
+        String sql = "SELECT COUNT(studentNUM) FROM student WHERE gender = 'Female' and status = 'Enrolled'";
 
         connect = database.connectDb();
 
@@ -299,7 +299,7 @@ public class dashboardController implements Initializable {
             result = prepare.executeQuery();
 
             if (result.next()) {
-                countFemale = result.getInt("COUNT(id)");
+                countFemale = result.getInt("COUNT(studentNUM)");
             }
 
             home_totalFemale.setText(String.valueOf(countFemale));
@@ -312,7 +312,7 @@ public class dashboardController implements Initializable {
 
     public void homeDisplayMaleEnrolled() {
 
-        String sql = "SELECT COUNT(id) FROM student WHERE gender = 'Male' and status = 'Enrolled'";
+        String sql = "SELECT COUNT(studentNum) FROM student WHERE gender = 'Male' and status = 'Enrolled'";
 
         connect = database.connectDb();
 
@@ -323,7 +323,7 @@ public class dashboardController implements Initializable {
             result = prepare.executeQuery();
 
             if (result.next()) {
-                countMale = result.getInt("COUNT(id)");
+                countMale = result.getInt("COUNT(studentNum)");
             }
             home_totalMale.setText(String.valueOf(countMale));
 
@@ -337,7 +337,7 @@ public class dashboardController implements Initializable {
 
         home_totalEnrolledChart.getData().clear();
 
-        String sql = "SELECT date, COUNT(id) FROM student WHERE status = 'Enrolled' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
+        String sql = "SELECT date, COUNT(studentNUM) FROM student WHERE status = 'Enrolled' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
 
         connect = database.connectDb();
 
@@ -363,7 +363,7 @@ public class dashboardController implements Initializable {
 
         home_totalFemaleChart.getData().clear();
 
-        String sql = "SELECT date, COUNT(id) FROM student WHERE status = 'Enrolled' and gender = 'Female' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
+        String sql = "SELECT date, COUNT(studentNUM) FROM student WHERE status = 'Enrolled' and gender = 'Female' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
 
         connect = database.connectDb();
 
@@ -389,7 +389,7 @@ public class dashboardController implements Initializable {
 
         home_totalMaleChart.getData().clear();
 
-        String sql = "SELECT date, COUNT(id) FROM student WHERE status = 'Enrolled' and gender = 'Male' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
+        String sql = "SELECT date, COUNT(studentNUM) FROM student WHERE status = 'Enrolled' and gender = 'Male' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
 
         connect = database.connectDb();
 
