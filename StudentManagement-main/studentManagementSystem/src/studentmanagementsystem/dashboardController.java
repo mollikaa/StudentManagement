@@ -670,7 +670,7 @@ public class dashboardController implements Initializable {
 
         }
     }
-
+//still in construction
     public void addStudentsSearch() {
 
         FilteredList<studentData> filter = new FilteredList<>(addStudentsListD, e -> true);
@@ -1096,8 +1096,8 @@ public class dashboardController implements Initializable {
             if (finalCheck1 == 0 || finalCheck2 == 0) {
                 finalResult = 0;
             } else {
-                finalResult = (Double.parseDouble(studentGrade_firstSem.getText())
-                        + Double.parseDouble(studentGrade_secondSem.getText()) / 2);
+                finalResult = ((Double.parseDouble(studentGrade_firstSem.getText())
+                        + Double.parseDouble(studentGrade_secondSem.getText())) / 2);
             }
 
             String updateData = "UPDATE student_grade SET "
